@@ -6,6 +6,10 @@ import static android.util.Log.println;
 
 public class UnityController {
 
+    public int getInt;
+    public String getString;
+    public String stringArr[] = new String[10];
+
     public static void Log(String type, String tag, String msg) {
         switch (type){
             case "d":
@@ -30,5 +34,29 @@ public class UnityController {
             default:
                 println(Log.ASSERT, tag, msg);
         }
+    }
+
+    public void setInt(int param) {
+        getInt = param;
+    }
+
+    public int getInt() {
+        return getInt;
+    }
+
+    public void setString(String param) {
+        getString = param;
+    }
+
+    public String getString() {
+        return getString;
+    }
+
+    public void setStringArr(String[] param) {
+        stringArr = param;
+    }
+
+    public String[] getStringArr() {
+        return getStringArr();
     }
 }
