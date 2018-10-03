@@ -6,9 +6,9 @@ import static android.util.Log.println;
 
 public class UnityController {
 
-    public int getInt;
-    public String getString;
-    public String stringArr[] = new String[10];
+    public int testInt;
+    public String testString;
+    public String testStringArr[] = new String[10];
 
     public static UnityController uc;
 
@@ -50,27 +50,27 @@ public class UnityController {
         }
     }
 
-    public void setInt(int param) {
-        getInt = param;
+    public void setTestInt(int param) {
+        testInt = param;
     }
 
-    public int getInt() {
-        return getInt;
+    public int getTestInt() {
+        return testInt;
     }
 
-    public void setString(String param) {
-        getString = param;
+    public void setTestString(String param) {
+        testString = param;
     }
 
     public String getString() {
-        return getString;
+        return testString;
     }
 
-    public void setStringArr(String[] param) {
-        stringArr = param;
+    public void testStringArr(String[] param) {
+        testStringArr = param;
     }
 
     public String[] getStringArr() {
-        return getStringArr();
+        return testStringArr;
     }
 }
