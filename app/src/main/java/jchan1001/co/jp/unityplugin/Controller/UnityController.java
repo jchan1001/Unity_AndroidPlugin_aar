@@ -10,7 +10,21 @@ public class UnityController {
     public String getString;
     public String stringArr[] = new String[10];
 
-    public static void Log(String type, String tag, String msg) {
+    public static UnityController uc;
+
+    public static UnityController getUnityController( ) {
+        if (uc == null) {
+            uc = new UnityController();
+            return uc;
+        } else {
+            return uc;
+        }
+    }
+
+    public void log(String tag, String msg) {
+        Log.e(tag, msg);
+    }
+    public static void staticLog(String type, String tag, String msg) {
         switch (type){
             case "d":
                 println(Log.DEBUG, tag, msg);
