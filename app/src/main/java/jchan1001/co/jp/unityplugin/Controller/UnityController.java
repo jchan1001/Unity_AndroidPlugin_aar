@@ -26,43 +26,37 @@ public class UnityController {
         }
     }
 
-    //AndroidJavaException: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/support/v7/app/AppCompatActivity;
-    //    java.lang.NoClassDefFoundError: Failed resolution of: Landroid/support/v7/app/AppCompatActivity;
-    public static void moveActivity(Context unityContext) {
-        Log.e("CCH", "OK MOVE0");
-//        Intent intent = new Intent(unityContext.getApplicationContext(), SecondActivity.class);
+    public void moveActivity(Context unityContext) {
         Intent intent = new Intent(unityContext.getApplicationContext(), MainActivity.class);
-        Log.e("CCH", "OK MOVE1");
+        intent.putExtra("UNITY_INT", getTestInt());
+        intent.putExtra("UNITY_STRING", getString());
+        intent.putExtra("UNITY_STRING_ARR", getStringArr());
         unityContext.startActivity(intent);
-        Log.e("CCH", "OK MOVE2");
     }
 
-    public void log(String tag, String msg) {
-        Log.e(tag, msg);
-    }
-    public static void staticLog(String type, String tag, String msg) {
+    public static void log(String type, String msg) {
         switch (type){
             case "d":
-                println(Log.DEBUG, tag, msg);
+                println(Log.DEBUG, "Unity Log", msg);
                 break;
             case "e":
                 // error
-                println(Log.ERROR, tag, msg);
+                println(Log.ERROR, "Unity Log", msg);
                 break;
             case "w":
                 // warning
-                println(Log.WARN, tag, msg);
+                println(Log.WARN, "Unity Log", msg);
                 break;
             case "i":
                 // information
-                println(Log.INFO, tag, msg);
+                println(Log.INFO, "Unity Log", msg);
                 break;
             case "v":
                 // verbose
-                println(Log.VERBOSE, tag, msg);
+                println(Log.VERBOSE, "Unity Log", msg);
                 break;
             default:
-                println(Log.ASSERT, tag, msg);
+                println(Log.ASSERT, "Unity Log", msg);
         }
     }
 
@@ -82,7 +76,7 @@ public class UnityController {
         return testString;
     }
 
-    public void testStringArr(String[] param) {
+    public void setTestStringArr(String[] param) {
         testStringArr = param;
     }
 
