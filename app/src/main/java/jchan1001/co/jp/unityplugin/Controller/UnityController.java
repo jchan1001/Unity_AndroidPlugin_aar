@@ -11,11 +11,12 @@ import static android.util.Log.println;
 
 public class UnityController {
 
-    public int testInt;
-    public String testString;
-    public String testStringArr[] = new String[10];
+    int testInt;
+    String testString;
+    String testStringArr[] = new String[10];
+    byte[] testImageData;
 
-    public static UnityController uc;
+    static UnityController uc;
 
     public static UnityController getUnityController( ) {
         if (uc == null) {
@@ -26,11 +27,13 @@ public class UnityController {
         }
     }
 
-    public void moveActivity(Context unityContext) {
+    public void moveActivity(Context unityContext, Intent unityIntent) {
         Intent intent = new Intent(unityContext.getApplicationContext(), MainActivity.class);
-        intent.putExtra("UNITY_INT", getTestInt());
+        intent.putExtra("UNITY_INT", getInt());
         intent.putExtra("UNITY_STRING", getString());
         intent.putExtra("UNITY_STRING_ARR", getStringArr());
+        intent.putExtra("UNITY_INTENT", unityIntent.getIntExtra("testok", 0));
+        intent.putExtra("UNITY_IMAGE_DATE", getImageData());
         unityContext.startActivity(intent);
     }
 
@@ -60,15 +63,15 @@ public class UnityController {
         }
     }
 
-    public void setTestInt(int param) {
+    public void setInt(int param) {
         testInt = param;
     }
 
-    public int getTestInt() {
+    public int getInt() {
         return testInt;
     }
 
-    public void setTestString(String param) {
+    public void setString(String param) {
         testString = param;
     }
 
@@ -76,11 +79,19 @@ public class UnityController {
         return testString;
     }
 
-    public void setTestStringArr(String[] param) {
+    public void setStringArr(String[] param) {
         testStringArr = param;
     }
 
     public String[] getStringArr() {
         return testStringArr;
+    }
+
+    public void setImageData(byte[] param) {
+        testImageData = param;
+    }
+
+    public byte[] getImageData() {
+        return testImageData;
     }
 }
