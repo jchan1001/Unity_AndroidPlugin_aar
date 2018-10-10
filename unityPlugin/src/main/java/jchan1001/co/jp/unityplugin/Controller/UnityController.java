@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.util.Log;
 
 import jchan1001.co.jp.unityplugin.MainActivity;
-import jchan1001.co.jp.unityplugin.SecondActivity;
 
 import static android.util.Log.println;
 
