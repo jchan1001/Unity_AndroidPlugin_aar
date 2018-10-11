@@ -3,6 +3,7 @@ package jchan1001.co.jp.unityplugin;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -55,5 +56,9 @@ public class MainActivity extends Activity {
                 UnityPlayer.UnitySendMessage("Script", "ChangeButtonColorGreen", "");
             }
         });
+
+        SharedPreferences data = getSharedPreferences(this.getPackageName() + ".v2.playerprefs", Context.MODE_PRIVATE);
+        int Level = data.getInt("Price",1 );
+        Log.e("Unity Log", "SharedPreferences Value : " + Level);
     }
 }
